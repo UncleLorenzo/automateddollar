@@ -1,8 +1,9 @@
+import Link from "next/link";
 import { Mark } from "@/components/Mark";
 import { LetterForm } from "@/components/LetterForm";
 
 const TICKER =
-  "SUBS −$62.00 ··· BANK FEES −$38.00 ··· FORGOTTEN TRIALS −$24.99 ··· DINING DRIFT −$117.40 ··· INSURANCE RESHOP +$340.00 ··· BILL NEGOTIATION +$45/MO ··· SAVED +$417.00 ··· EVERY BUILD SHIPS A TEMPLATE ··· ";
+  "SUBS −$62.00 ··· BANK FEES −$38.00 ··· FORGOTTEN TRIALS −$24.99 ··· DINING DRIFT −$117.40 ··· INSURANCE RESHOP +$340.00 ··· BILL NEGOTIATION +$45/MO ··· EVERY BUILD SHIPS A TEMPLATE ··· DEMO DATA, CLEARLY LABELED — ALWAYS ··· ";
 
 const SOCIALS = [
   { name: "YOUTUBE", handle: "@automateddollar", url: "https://www.youtube.com/@automateddollar" },
@@ -10,6 +11,29 @@ const SOCIALS = [
   { name: "INSTAGRAM", handle: "@automateddollar", url: "https://www.instagram.com/automateddollar" },
   { name: "PINTEREST", handle: "@automateddollar", url: "https://www.pinterest.com/automateddollar" },
   { name: "X", handle: "@theautodollar", url: "https://x.com/theautodollar" },
+];
+
+const FAQ = [
+  {
+    q: "Do I need to be technical?",
+    a: "No. You get a link, you click “Make a copy,” and the sheet is yours in Google Sheets. The automation is already inside it — buttons, not code.",
+  },
+  {
+    q: "Where does my financial data go?",
+    a: "Nowhere. The sheet lives in YOUR Google account. No bank logins, no syncing, no servers of ours. The optional AI categorization runs on your own API key — we never see a single transaction.",
+  },
+  {
+    q: "Why one-time instead of a subscription?",
+    a: "Because it’s a tool, and you should own your tools. Apps that do this charge $6–12 every month forever and require connecting your bank. Your spreadsheet doesn’t.",
+  },
+  {
+    q: "Does it work in Excel?",
+    a: "No — Google Sheets only. The automation engine is built on Apps Script, which is what makes the sheet run itself.",
+  },
+  {
+    q: "What if it breaks or I hate it?",
+    a: "Free updates for life, and a 30-day Receipts Guarantee: if it doesn’t work for you, email us and we refund it. No interrogation.",
+  },
 ];
 
 function Ticker() {
@@ -46,9 +70,10 @@ export default function Home() {
             </span>
           </a>
           <nav className="nav">
-            <a href="#builds">BUILDS</a>
+            <a href="#method">METHOD</a>
             <a href="#templates">TEMPLATES</a>
             <a href="#letter">THE LETTER</a>
+            <Link href="/about">ABOUT</Link>
             <a
               className="nav__cta"
               href="https://www.youtube.com/@automateddollar?sub_confirmation=1"
@@ -78,15 +103,15 @@ export default function Home() {
               >
                 ▶ WATCH BUILD #1
               </a>
-              <a className="btn" href="#templates">
-                GET THE TEMPLATES
+              <a className="btn" href="#letter">
+                GET THE FREE DASHBOARD
               </a>
             </div>
           </div>
 
           <div className="receipt" aria-hidden="true">
             <div className="receipt__body">
-              <div className="receipt__head">THE AUTOMATED DOLLAR ·· 30-DAY AUDIT</div>
+              <div className="receipt__head">DEMO HOUSEHOLD ·· 30-DAY AUDIT</div>
               <div className="receipt__row mono">
                 <span>FORGOTTEN SUBS</span>
                 <span className="amt--waste">−$62.00</span>
@@ -119,18 +144,44 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section" id="builds">
+        <div className="ledgerstrip">
+          <div className="wrap ledgerstrip__inner mono">
+            <span>FOUND ACROSS ALL BUILDS: <strong>$0.00</strong> — Build #1 is in production.</span>
+            <span className="ledgerstrip__note">
+              Every number that ever appears here will link to the video that proves it.
+            </span>
+          </div>
+        </div>
+
+        <section className="section" id="method">
           <div className="wrap">
-            <p className="section__label">WHAT WE DO</p>
-            <h2>Three kinds of builds. One rule: show the receipts.</h2>
+            <p className="section__label">THE RECEIPT METHOD</p>
+            <h2>Audit. Automate. Verify.</h2>
             <p className="section__intro">
-              Every video is a real system, built on screen, with the artifact
-              linked below it — free version in the description, full version in
-              the shop.
+              Every build on this channel runs the same three moves — on a
+              clearly-labeled demo household, with the artifact linked under
+              every video.
             </p>
+            <div className="method">
+              <div className="method__step">
+                <span className="method__num mono">01</span>
+                <h3>Audit</h3>
+                <p>Find what&apos;s actually happening. The step everyone skips because it stings.</p>
+              </div>
+              <div className="method__step">
+                <span className="method__num mono">02</span>
+                <h3>Automate</h3>
+                <p>Build a system so it never depends on willpower again.</p>
+              </div>
+              <div className="method__step">
+                <span className="method__num mono">03</span>
+                <h3>Verify</h3>
+                <p>Show the number it moved. That&apos;s the receipt.</p>
+              </div>
+            </div>
             <div className="pillars">
               <article className="pillar">
-                <p className="pillar__num mono">01 / BUILD WITH ME</p>
+                <p className="pillar__num mono">FORMAT 01 / BUILD WITH ME</p>
                 <h3>Money systems, built on camera</h3>
                 <p>
                   Automated budgets, payday routines, trackers that text you.
@@ -138,7 +189,7 @@ export default function Home() {
                 </p>
               </article>
               <article className="pillar">
-                <p className="pillar__num mono">02 / DATA DROPS</p>
+                <p className="pillar__num mono">FORMAT 02 / DATA DROPS</p>
                 <h3>Original research, real numbers</h3>
                 <p>
                   We read 50 banks&apos; fee schedules so you don&apos;t have to. What 1%
@@ -146,7 +197,7 @@ export default function Home() {
                 </p>
               </article>
               <article className="pillar">
-                <p className="pillar__num mono">03 / TOOL COURT</p>
+                <p className="pillar__num mono">FORMAT 03 / TOOL COURT</p>
                 <h3>Apps on trial, verdicts included</h3>
                 <p>
                   We feed the same messy month to every budgeting app and AI
@@ -163,20 +214,33 @@ export default function Home() {
             <h2>Templates that are actually software.</h2>
             <p className="section__intro">
               Most budget templates are pretty grids. Ours have working engines —
-              automation scripts, AI categorization, duplicate detection — built
-              by people who ship software for a living.
+              automation scripts, AI categorization, duplicate detection. And
+              unlike the apps that do this for $6–12 a month, <strong>your
+              spreadsheet never asks for your bank login.</strong>
             </p>
+
             <div className="shop">
-              <article className="product">
-                <p className="product__badge mono">FLAGSHIP · LAUNCHING THIS WEEK</p>
+              <article className="product product--flagship">
+                <p className="product__badge mono">FLAGSHIP · LAUNCHING WITH BUILD #1</p>
                 <h3>The AI Budget Dashboard</h3>
                 <p>
-                  A Google Sheet that runs itself: paste your bank statement, let
-                  the AI categorize it, watch the dashboard update. Duplicate
-                  detection, budget-vs-actual, top merchants — no formulas to
-                  babysit.
+                  A Google Sheet that runs itself: paste your bank statement,
+                  let the AI categorize it, watch the dashboard update.
                 </p>
-                <p className="product__price mono">$19 · GOOGLE SHEETS + APPS SCRIPT</p>
+                <ul className="product__list mono">
+                  <li>AI transaction categorization (your own key — your data stays yours)</li>
+                  <li>Paste-in bank statement import, any bank</li>
+                  <li>Duplicate &amp; double-charge detection</li>
+                  <li>Budget-vs-actual dashboard + top merchants</li>
+                  <li>Setup guide written for normal humans</li>
+                  <li>Free updates, forever</li>
+                </ul>
+                <p className="product__price mono">
+                  $19 · ONE-TIME · NO SUBSCRIPTION
+                </p>
+                <p className="product__guarantee mono">
+                  🧾 30-DAY RECEIPTS GUARANTEE — DOESN&apos;T WORK FOR YOU? FULL REFUND, NO INTERROGATION.
+                </p>
               </article>
               <article className="product">
                 <p className="product__badge mono">FREE FOREVER</p>
@@ -184,10 +248,20 @@ export default function Home() {
                 <p>
                   The free version we give away with every build video — manual
                   entry, rule-based categorization, a clean monthly dashboard.
-                  Genuinely useful, upgrade optional.
+                  Genuinely useful. Start here; upgrade if the AI earns it.
                 </p>
-                <p className="product__price mono">$0 · IN EVERY VIDEO DESCRIPTION</p>
+                <p className="product__price mono">$0 · GET IT VIA THE LETTER ↓</p>
               </article>
+            </div>
+
+            <div className="faq">
+              <p className="section__label">QUESTIONS, ANSWERED STRAIGHT</p>
+              {FAQ.map((f) => (
+                <details key={f.q}>
+                  <summary>{f.q}</summary>
+                  <p>{f.a}</p>
+                </details>
+              ))}
             </div>
           </div>
         </section>
@@ -197,7 +271,8 @@ export default function Home() {
             <h2>The Bottom Line</h2>
             <p>
               One money system per week, in your inbox: the build, the template,
-              and the receipt. Written like a letter, not a newsletter.
+              and the receipt. Joining now also gets you the free Lite Dashboard
+              the moment it ships with Build #1.
             </p>
             <LetterForm />
           </div>
@@ -219,12 +294,22 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="wrap footer">
-        <p>
-          © 2026 THE AUTOMATED DOLLAR. EDUCATIONAL CONTENT ONLY — NOT FINANCIAL
-          ADVICE. WE SHOW OUR WORK; DO YOUR OWN.
-        </p>
-        <p>BUILT WITH AI. SUPERVISED BY HUMANS. RECEIPTS ON REQUEST.</p>
+      <footer className="footer-block">
+        <div className="wrap footer">
+          <p>
+            © 2026 THE AUTOMATED DOLLAR · A YELLOWSTONE VENTURES LLC BRAND ·
+            EDUCATIONAL CONTENT ONLY — NOT FINANCIAL ADVICE. DEMO DATA IS ALWAYS
+            LABELED. WE SHOW OUR WORK; DO YOUR OWN.
+          </p>
+          <nav className="footer__links mono">
+            <Link href="/about">ABOUT</Link>
+            <Link href="/privacy">PRIVACY</Link>
+            <Link href="/terms">TERMS &amp; DISCLOSURES</Link>
+            <a href="mailto:rob@theautomateddollar.com">CONTACT</a>
+            <Link href="/links">/LINKS</Link>
+          </nav>
+          <p>BUILT WITH AI. SUPERVISED BY HUMANS. RECEIPTS ON REQUEST.</p>
+        </div>
       </footer>
     </>
   );
