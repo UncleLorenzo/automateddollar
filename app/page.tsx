@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Mark } from "@/components/Mark";
 import { LetterForm } from "@/components/LetterForm";
+import { FX } from "@/components/FX";
 
 const TICKER =
   "SUBS −$62.00 ··· BANK FEES −$38.00 ··· FORGOTTEN TRIALS −$24.99 ··· DINING DRIFT −$117.40 ··· INSURANCE RESHOP +$340.00 ··· BILL NEGOTIATION +$45/MO ··· EVERY BUILD SHIPS A TEMPLATE ··· DEMO DATA, CLEARLY LABELED — ALWAYS ··· ";
@@ -59,6 +60,7 @@ function Ticker() {
 export default function Home() {
   return (
     <>
+      <FX />
       <Ticker />
       <header className="header">
         <div className="wrap header__bar">
@@ -109,7 +111,10 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="receipt" aria-hidden="true">
+          <div className="printer" aria-hidden="true">
+            <div className="printer__slot" />
+            <div className="receipt">
+              <div className="stamp stamp--red">DEMO DATA<br/>REAL MATH</div>
             <div className="receipt__body">
               <div className="receipt__head">DEMO HOUSEHOLD ·· 30-DAY AUDIT</div>
               <div className="receipt__row mono">
@@ -141,6 +146,7 @@ export default function Home() {
                 strokeWidth="1"
               />
             </svg>
+            </div>
           </div>
         </section>
 
@@ -154,7 +160,8 @@ export default function Home() {
         </div>
 
         <section className="section" id="method">
-          <div className="wrap">
+          <span className="ghostnum" aria-hidden="true">01</span>
+          <div className="wrap" data-reveal>
             <p className="section__label">THE RECEIPT METHOD</p>
             <h2>Audit. Automate. Verify.</h2>
             <p className="section__intro">
@@ -209,7 +216,8 @@ export default function Home() {
         </section>
 
         <section className="section" id="templates">
-          <div className="wrap">
+          <span className="ghostnum" aria-hidden="true">02</span>
+          <div className="wrap" data-reveal>
             <p className="section__label">THE SHOP</p>
             <h2>Templates that are actually software.</h2>
             <p className="section__intro">
@@ -221,6 +229,7 @@ export default function Home() {
 
             <div className="shop">
               <article className="product product--flagship">
+                <div className="stamp stamp--amber stamp--corner">30-DAY<br/>GUARANTEE</div>
                 <p className="product__badge mono">FLAGSHIP · LAUNCHING WITH BUILD #1</p>
                 <h3>The AI Budget Dashboard</h3>
                 <p>
@@ -267,7 +276,7 @@ export default function Home() {
         </section>
 
         <section className="letter" id="letter">
-          <div className="wrap">
+          <div className="wrap" data-reveal>
             <h2>The Bottom Line</h2>
             <p>
               One money system per week, in your inbox: the build, the template,
@@ -279,7 +288,8 @@ export default function Home() {
         </section>
 
         <section className="section">
-          <div className="wrap">
+          <span className="ghostnum" aria-hidden="true">03</span>
+          <div className="wrap" data-reveal>
             <p className="section__label">EVERYWHERE ELSE</p>
             <h2>Follow the builds.</h2>
             <div className="socials">
