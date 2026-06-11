@@ -1027,3 +1027,33 @@ html.js [data-reveal].in {
   .nav { gap: 12px; }
   .nav .nav__cta { font-size: 10.5px; padding: 8px 10px; letter-spacing: 1px; }
 }
+
+/* ---------- v3 mobile elite pass ---------- */
+@media (max-width: 720px) {
+  .ghostnum {
+    font-size: 96px;
+    top: 16px;
+    right: 12px;
+    color: rgba(16, 34, 28, 0.045);
+  }
+  .printer { width: min(300px, 88%); margin: 8px auto 0; }
+  .stamp { font-size: 11px; letter-spacing: 1.5px; padding: 6px 9px; }
+  .stamp--red { right: -8px; bottom: 28px; }
+  .stamp--corner { font-size: 10px; right: 12px; top: 12px; }
+  .ledgerstrip__inner {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+    align-items: center;
+    font-size: 12px;
+  }
+  .ledgerstrip__note { font-size: 10px; }
+  .method__step { padding: 20px 20px 22px; }
+  .method__step h3 { font-size: 21px; }
+  .faq summary { font-size: 16.5px; padding-right: 24px; }
+  .faq details p { font-size: 15.5px; }
+  .product { padding: 24px 20px; }
+  .product--flagship { padding-top: 56px; }
+  .footer__links { gap: 14px; row-gap: 10px; }
+  .page { padding: 48px 20px 72px; }
+}
