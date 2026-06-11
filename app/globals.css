@@ -520,6 +520,124 @@ a {
   to { opacity: 1; transform: none; }
 }
 
+/* ---------- v5 jeweler's pass ---------- */
+
+/* anchors must clear the sticky header */
+section[id], .letter[id] { scroll-margin-top: 96px; }
+
+/* custom scrollbar — ledger pen on paper */
+::-webkit-scrollbar { width: 11px; }
+::-webkit-scrollbar-track { background: var(--paper); }
+::-webkit-scrollbar-thumb {
+  background: var(--green);
+  border: 3px solid var(--paper);
+  border-radius: 6px;
+}
+
+/* focus rings worthy of the brand */
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible {
+  outline: 2.5px solid var(--amber);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.btn:active { transform: translate(0, 0); box-shadow: none; }
+
+.section__intro, .sechead h2, .hero__sub { text-wrap: balance; }
+
+/* hero jewel: amber period + underline that draws itself */
+.hero2__dot { color: var(--amber); }
+
+.hero2__money::after {
+  transform-origin: left center;
+  animation: drawline 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.95s both;
+}
+
+@keyframes drawline {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+/* ledger cursor blink */
+.cursor {
+  display: inline-block;
+  width: 0.55em;
+  height: 1em;
+  background: var(--amber);
+  margin-left: 6px;
+  vertical-align: text-bottom;
+  animation: blink 1.1s steps(1) infinite;
+}
+
+@keyframes blink { 50% { opacity: 0; } }
+
+/* receipt barcode + txn line */
+.receipt__barcode {
+  height: 26px;
+  margin-top: 14px;
+  background: repeating-linear-gradient(
+    to right,
+    var(--ink) 0 2px, transparent 2px 5px,
+    var(--ink) 5px 6px, transparent 6px 11px,
+    var(--ink) 11px 14px, transparent 14px 17px,
+    var(--ink) 17px 18px, transparent 18px 22px
+  );
+  opacity: 0.85;
+}
+
+.receipt__txn {
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  color: #8a857a;
+  text-align: center;
+  margin-top: 8px;
+}
+
+.printer .receipt__barcode,
+.printer .receipt__txn {
+  opacity: 0;
+  animation: rise 0.4s ease forwards;
+  animation-delay: 2.25s;
+}
+
+.printer .receipt__barcode { opacity: 0; }
+.printer .receipt__barcode { animation-name: barcodeIn; }
+
+@keyframes barcodeIn {
+  from { opacity: 0; }
+  to { opacity: 0.85; }
+}
+
+/* method steps: amber rule extends on hover */
+.method__num { transition: border-color 0.2s; }
+.method__step { transition: background 0.2s; }
+.method__step:hover { background: rgba(232, 161, 61, 0.06); }
+.method__step:hover .method__num { border-color: var(--amber); }
+
+/* pillar hover lift */
+.pillar { transition: transform 0.15s, box-shadow 0.15s; }
+.pillar:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 rgba(16, 34, 28, 0.18); }
+
+/* FAQ summary affordance */
+.faq summary { transition: color 0.15s; }
+.faq summary:hover { color: var(--green); }
+
+/* marquee: pause + ink-fill on hover */
+.bigband:hover .bigband__inner {
+  animation-play-state: paused;
+  -webkit-text-stroke: 1.5px rgba(16, 34, 28, 0.7);
+}
+
+.bigband__inner { transition: -webkit-text-stroke 0.3s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero2__money::after, .cursor, .printer .receipt__barcode, .printer .receipt__txn {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+}
+
 /* ---------- v4 broadsheet hero ---------- */
 .hero2 {
   padding-block: 48px 72px;

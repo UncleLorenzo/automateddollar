@@ -93,7 +93,7 @@ export default function Home() {
             <h1 className="hero2__title">
               <span className="hero2__line">AI systems</span>
               <span className="hero2__line">that <em>run</em></span>
-              <span className="hero2__line">your <span className="hero2__money">money.</span></span>
+              <span className="hero2__line">your <span className="hero2__money">money<span className="hero2__dot">.</span></span></span>
             </h1>
             <div className="hero2__row">
               <div>
@@ -141,6 +141,8 @@ export default function Home() {
                 <span>FOUND &amp; FIXED</span>
                 <span>+$417.00</span>
               </div>
+              <div className="receipt__barcode" />
+              <div className="receipt__txn mono">TXN Nº 0001 · THEAUTOMATEDDOLLAR.COM</div>
             </div>
             <svg className="receipt__zigzag" viewBox="0 0 320 14" preserveAspectRatio="none">
               <path
@@ -158,7 +160,7 @@ export default function Home() {
 
         <div className="ledgerstrip">
           <div className="wrap ledgerstrip__inner mono">
-            <span>FOUND ACROSS ALL BUILDS: <strong>$0.00</strong> — Build #1 is in production.</span>
+            <span>FOUND ACROSS ALL BUILDS: <strong>$0.00<span className="cursor" aria-hidden="true" /></strong> — Build #1 is in production.</span>
             <span className="ledgerstrip__note">
               Every number that ever appears here will link to the video that proves it.
             </span>
