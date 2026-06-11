@@ -520,6 +520,123 @@ a {
   to { opacity: 1; transform: none; }
 }
 
+/* ---------- v4 broadsheet hero ---------- */
+.hero2 {
+  padding-block: 48px 72px;
+}
+
+.hero2__kicker {
+  font-size: 12.5px;
+  letter-spacing: 5px;
+  color: var(--green);
+  margin-bottom: 30px;
+  animation: rise 0.6s ease both;
+}
+
+.hero2__title {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(56px, 11vw, 152px);
+  line-height: 0.96;
+  font-weight: 700;
+  letter-spacing: -0.035em;
+  text-transform: uppercase;
+}
+
+.hero2__line { animation: rise 0.7s ease both; }
+.hero2__line:nth-child(1) { animation-delay: 0.05s; }
+.hero2__line:nth-child(2) { animation-delay: 0.15s; }
+.hero2__line:nth-child(3) { animation-delay: 0.25s; }
+
+.hero2__title em {
+  font-style: italic;
+  color: var(--green);
+  text-transform: lowercase;
+}
+
+.hero2__money {
+  position: relative;
+  white-space: nowrap;
+}
+
+.hero2__money::after {
+  content: "";
+  position: absolute;
+  left: 0.02em;
+  right: 0.08em;
+  bottom: -0.02em;
+  height: 0.06em;
+  border-top: 0.025em solid var(--amber);
+  border-bottom: 0.025em solid var(--amber);
+}
+
+.hero2__row {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 56px;
+  align-items: start;
+  margin-top: 48px;
+}
+
+.hero2__row .hero__sub { animation-delay: 0.35s; }
+.hero2__row .hero__actions { animation-delay: 0.45s; }
+
+@media (min-width: 1100px) {
+  .hero2__row .printer { margin-top: -120px; }
+}
+
+@media (max-width: 860px) {
+  .hero2 { padding-block: 36px 56px; }
+  .hero2__row { grid-template-columns: 1fr; gap: 40px; margin-top: 32px; }
+}
+
+/* ---------- v4 ledger section heads ---------- */
+.sechead {
+  border-top: 3px double var(--ink);
+  padding-top: 20px;
+  margin-bottom: 26px;
+}
+
+.sechead__no {
+  display: block;
+  font-size: 13px;
+  letter-spacing: 4px;
+  color: var(--amber);
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+.sechead h2 {
+  font-size: clamp(38px, 6.5vw, 84px);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 0;
+}
+
+/* ---------- v4 marquee band ---------- */
+.bigband {
+  overflow: hidden;
+  white-space: nowrap;
+  border-top: 3px double var(--ink);
+  background: var(--paper);
+  padding-block: 26px;
+}
+
+.bigband__inner {
+  display: inline-block;
+  font-family: var(--serif);
+  font-weight: 700;
+  font-size: clamp(56px, 8.5vw, 110px);
+  letter-spacing: -0.02em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(16, 34, 28, 0.4);
+  animation: ticker 36s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bigband__inner { animation: none; }
+}
+
 /* ---------- v3 FX ---------- */
 .header {
   position: sticky;

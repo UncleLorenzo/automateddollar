@@ -87,31 +87,35 @@ export default function Home() {
       </header>
 
       <main>
-        <section className="wrap hero">
-          <div>
-            <p className="hero__kicker">EST. 2026 · NEW BUILDS WEEKLY</p>
-            <h1>
-              AI systems that <em>run your money.</em>
+        <section className="hero2">
+          <div className="wrap">
+            <p className="hero2__kicker mono">EST. 2026 · NEW BUILDS WEEKLY · RECEIPTS INCLUDED</p>
+            <h1 className="hero2__title">
+              <span className="hero2__line">AI systems</span>
+              <span className="hero2__line">that <em>run</em></span>
+              <span className="hero2__line">your <span className="hero2__money">money.</span></span>
             </h1>
-            <p className="hero__sub">
-              We build automated budgets, fee hunts, and money systems on camera —
-              with real numbers, working templates, and zero hype. If it saves
-              money, you&apos;ll see the receipt. If it doesn&apos;t, you&apos;ll see that too.
-            </p>
-            <div className="hero__actions">
-              <a
-                className="btn btn--primary"
-                href="https://www.youtube.com/@automateddollar?sub_confirmation=1"
-              >
-                ▶ WATCH BUILD #1
-              </a>
-              <a className="btn" href="#letter">
-                GET THE FREE DASHBOARD
-              </a>
-            </div>
-          </div>
+            <div className="hero2__row">
+              <div>
+                <p className="hero__sub">
+                  We build automated budgets, fee hunts, and money systems on camera —
+                  with real numbers, working templates, and zero hype. If it saves
+                  money, you&apos;ll see the receipt. If it doesn&apos;t, you&apos;ll see that too.
+                </p>
+                <div className="hero__actions">
+                  <a
+                    className="btn btn--primary"
+                    href="https://www.youtube.com/@automateddollar?sub_confirmation=1"
+                  >
+                    ▶ WATCH BUILD #1
+                  </a>
+                  <a className="btn" href="#letter">
+                    GET THE FREE DASHBOARD
+                  </a>
+                </div>
+              </div>
 
-          <div className="printer" aria-hidden="true">
+              <div className="printer" aria-hidden="true">
             <div className="printer__slot" />
             <div className="receipt">
               <div className="stamp stamp--red">DEMO DATA<br/>REAL MATH</div>
@@ -146,6 +150,8 @@ export default function Home() {
                 strokeWidth="1"
               />
             </svg>
+              </div>
+              </div>
             </div>
           </div>
         </section>
@@ -160,10 +166,11 @@ export default function Home() {
         </div>
 
         <section className="section" id="method">
-          <span className="ghostnum" aria-hidden="true">01</span>
           <div className="wrap" data-reveal>
-            <p className="section__label">THE RECEIPT METHOD</p>
-            <h2>Audit. Automate. Verify.</h2>
+            <div className="sechead">
+              <span className="sechead__no mono">Nº 01 — THE RECEIPT METHOD</span>
+              <h2>Audit. Automate. Verify.</h2>
+            </div>
             <p className="section__intro">
               Every build on this channel runs the same three moves — on a
               clearly-labeled demo household, with the artifact linked under
@@ -216,10 +223,11 @@ export default function Home() {
         </section>
 
         <section className="section" id="templates">
-          <span className="ghostnum" aria-hidden="true">02</span>
           <div className="wrap" data-reveal>
-            <p className="section__label">THE SHOP</p>
-            <h2>Templates that are actually software.</h2>
+            <div className="sechead">
+              <span className="sechead__no mono">Nº 02 — THE SHOP</span>
+              <h2>Templates that are actually software.</h2>
+            </div>
             <p className="section__intro">
               Most budget templates are pretty grids. Ours have working engines —
               automation scripts, AI categorization, duplicate detection. And
@@ -288,10 +296,11 @@ export default function Home() {
         </section>
 
         <section className="section">
-          <span className="ghostnum" aria-hidden="true">03</span>
           <div className="wrap" data-reveal>
-            <p className="section__label">EVERYWHERE ELSE</p>
-            <h2>Follow the builds.</h2>
+            <div className="sechead">
+              <span className="sechead__no mono">Nº 03 — EVERYWHERE ELSE</span>
+              <h2>Follow the builds.</h2>
+            </div>
             <div className="socials">
               {SOCIALS.map((s) => (
                 <a key={s.name} className="social" href={s.url}>
@@ -303,6 +312,13 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      <div className="bigband" aria-hidden="true">
+        <div className="bigband__inner">
+          RECEIPTS INCLUDED · THE AUTOMATED DOLLAR · RECEIPTS INCLUDED · THE AUTOMATED DOLLAR ·&nbsp;
+          RECEIPTS INCLUDED · THE AUTOMATED DOLLAR · RECEIPTS INCLUDED · THE AUTOMATED DOLLAR ·&nbsp;
+        </div>
+      </div>
 
       <footer className="footer-block">
         <div className="wrap footer">
