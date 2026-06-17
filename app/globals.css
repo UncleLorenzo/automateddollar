@@ -934,6 +934,159 @@ html.js [data-reveal].in {
   .ticker__inner { animation: none; }
 }
 
+/* ---------- live demo dashboard ---------- */
+.dd {
+  margin-top: 40px;
+  border: 2px solid var(--ink);
+  background: var(--paper-card);
+}
+
+.dd__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  background: var(--ink);
+  padding: 14px 20px;
+}
+
+.dd__title { color: var(--green-bright); font-size: 12px; letter-spacing: 2px; }
+
+.dd__toggle {
+  background: var(--amber);
+  color: var(--ink);
+  border: none;
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  padding: 9px 16px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.1s;
+}
+
+.dd__toggle:hover { transform: translateY(-1px); }
+.dd__toggle.is-on { background: var(--green-bright); color: var(--paper); }
+
+.dd__tiles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.dd__tile {
+  background: var(--paper-card);
+  padding: 18px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.dd__tilek { font-size: 10px; letter-spacing: 2px; color: #5a6660; }
+.dd__tilev { font-size: 26px; font-weight: 700; color: var(--ink); transition: color 0.4s; }
+.dd__tile--up .dd__tilev { color: var(--green-bright); }
+.dd__tile--down .dd__tilev { color: var(--ink); }
+
+.dd__grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 1px;
+  background: var(--rule);
+}
+
+@media (max-width: 760px) {
+  .dd__tiles { grid-template-columns: repeat(2, 1fr); }
+  .dd__grid { grid-template-columns: 1fr; }
+}
+
+.dd__panel { background: var(--paper-card); padding: 20px; }
+.dd__panel--find { background: #fbf8ee; }
+
+.dd__panelh {
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--green);
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--rule);
+}
+
+.dd__row {
+  display: grid;
+  grid-template-columns: 92px 1fr 64px;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 9px;
+}
+
+.dd__rowname { font-size: 13.5px; color: var(--ink); }
+
+.dd__track {
+  height: 12px;
+  background: #ece7d8;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.dd__fill {
+  display: block;
+  height: 100%;
+  background: var(--green);
+  border-radius: 2px;
+  transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.dd__fill.is-over { background: var(--red); }
+
+.dd__amt { font-size: 12.5px; text-align: right; color: #3c4a42; }
+.dd__amt.is-over { color: var(--red); font-weight: 700; }
+
+.dd__find {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 13.5px;
+  padding: 7px 0;
+  border-bottom: 1px dotted var(--rule);
+  transition: opacity 0.3s;
+}
+
+.dd__find.is-cut { opacity: 0.4; }
+.dd__find.is-cut .dd__findl,
+.dd__find.is-cut .dd__finda { text-decoration: line-through; }
+
+.dd__findl { color: var(--ink); }
+.dd__finda { color: var(--red); font-size: 12.5px; }
+
+.dd__findtotal {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: 700;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 3px double var(--ink);
+  color: var(--ink);
+}
+
+.dd__findtotal .pos { color: var(--green-bright); }
+.dd__findtotal .neg { color: var(--red); }
+
+.dd__note { font-size: 10.5px; color: #8a857a; margin-top: 10px; letter-spacing: 0.5px; }
+
+.dd__disclaimer {
+  text-align: center;
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #8a857a;
+  padding: 12px;
+  background: var(--paper);
+  border-top: 1px solid var(--rule);
+}
+
 /* ---------- ledger strip ---------- */
 .ledgerstrip {
   background: var(--ink);

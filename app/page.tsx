@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Mark } from "@/components/Mark";
 import { LetterForm } from "@/components/LetterForm";
 import { FX } from "@/components/FX";
+import { DemoDashboard } from "@/components/DemoDashboard";
 
 const TICKER =
   "SUBS −$62.00 ··· BANK FEES −$38.00 ··· FORGOTTEN TRIALS −$24.99 ··· DINING DRIFT −$117.40 ··· INSURANCE RESHOP +$340.00 ··· BILL NEGOTIATION +$45/MO ··· EVERY BUILD SHIPS A TEMPLATE ··· DEMO DATA, CLEARLY LABELED — ALWAYS ··· ";
@@ -73,6 +74,7 @@ export default function Home() {
           </a>
           <nav className="nav">
             <a href="#method">METHOD</a>
+            <a href="#demo">DEMO</a>
             <a href="#templates">TEMPLATES</a>
             <a href="#letter">THE LETTER</a>
             <Link href="/about">ABOUT</Link>
@@ -122,24 +124,32 @@ export default function Home() {
             <div className="receipt__body">
               <div className="receipt__head">DEMO HOUSEHOLD ·· 30-DAY AUDIT</div>
               <div className="receipt__row mono">
-                <span>FORGOTTEN SUBS</span>
-                <span className="amt--waste">−$62.00</span>
+                <span>GYM · LAST VISIT: NEVER</span>
+                <span className="amt--waste">−$34.99</span>
               </div>
               <div className="receipt__row mono">
-                <span>BANK FEES</span>
-                <span className="amt--waste">−$38.00</span>
+                <span>HULU · BILLED TWICE</span>
+                <span className="amt--waste">−$17.99</span>
               </div>
               <div className="receipt__row mono">
-                <span>FREE TRIAL №7</span>
-                <span className="amt--waste">−$24.99</span>
+                <span>“FREE” TRIAL · MONTH 9</span>
+                <span className="amt--waste">−$11.99</span>
               </div>
               <div className="receipt__row mono">
-                <span>DINING DRIFT</span>
-                <span className="amt--waste">−$117.40</span>
+                <span>STORAGE UNIT · FORGOTTEN</span>
+                <span className="amt--waste">−$68.00</span>
+              </div>
+              <div className="receipt__row mono">
+                <span>WAIVABLE BANK FEE</span>
+                <span className="amt--waste">−$12.00</span>
+              </div>
+              <div className="receipt__row mono">
+                <span>WRONG-ATM TAX</span>
+                <span className="amt--waste">−$7.00</span>
               </div>
               <div className="receipt__total">
-                <span>FOUND &amp; FIXED</span>
-                <span>+$417.00</span>
+                <span>FOUND / MONTH</span>
+                <span>+$151.97</span>
               </div>
               <div className="receipt__barcode" />
               <div className="receipt__txn mono">TXN Nº 0001 · THEAUTOMATEDDOLLAR.COM</div>
@@ -224,10 +234,25 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="section" id="demo">
+          <div className="wrap" data-reveal>
+            <div className="sechead">
+              <span className="sechead__no mono">Nº 02 — SEE IT WORK</span>
+              <h2>The dashboard, live.</h2>
+            </div>
+            <p className="section__intro">
+              This isn&apos;t a screenshot. It&apos;s the actual template running on the demo
+              household&apos;s year. Hit <strong>Show me the fixes</strong> and watch the savings
+              rate move — that&apos;s the whole product in ten seconds.
+            </p>
+            <DemoDashboard />
+          </div>
+        </section>
+
         <section className="section" id="templates">
           <div className="wrap" data-reveal>
             <div className="sechead">
-              <span className="sechead__no mono">Nº 02 — THE SHOP</span>
+              <span className="sechead__no mono">Nº 03 — THE SHOP</span>
               <h2>Templates that are actually software.</h2>
             </div>
             <p className="section__intro">
@@ -300,7 +325,7 @@ export default function Home() {
         <section className="section">
           <div className="wrap" data-reveal>
             <div className="sechead">
-              <span className="sechead__no mono">Nº 03 — EVERYWHERE ELSE</span>
+              <span className="sechead__no mono">Nº 04 — EVERYWHERE ELSE</span>
               <h2>Follow the builds.</h2>
             </div>
             <div className="socials">
