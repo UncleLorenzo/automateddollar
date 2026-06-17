@@ -36,9 +36,10 @@ export default function Terms() {
       <p>
         Templates are digital goods delivered as copy links or downloads. They
         are for personal use — please don&apos;t resell or redistribute them.
-        Our templates carry a 30-day money-back guarantee: if one doesn&apos;t
-        work for you, email rob@theautomateddollar.com and we&apos;ll refund
-        it, no interrogation.
+        Like most digital downloads they are non-refundable once delivered — but
+        you&apos;re never buying blind: a free Lite version lets you try the core
+        first, and if a paid template won&apos;t run for you, email
+        rob@theautomateddollar.com and we&apos;ll help you get it working.
       </p>
 
       <h2>Demo data</h2>

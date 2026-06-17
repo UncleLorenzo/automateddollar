@@ -33,8 +33,8 @@ const FAQ = [
     a: "No — Google Sheets only. The automation engine is built on Apps Script, which is what makes the sheet run itself.",
   },
   {
-    q: "What if it breaks or I hate it?",
-    a: "Free updates for life, and a 30-day Receipts Guarantee: if it doesn’t work for you, email us and we refund it. No interrogation.",
+    q: "What if it doesn’t work for me?",
+    a: "You’re never buying blind. The free Lite version lets you try the core first, so you upgrade only once you know you like it. And if the full version won’t run for you, email me — I’ll personally get it working. Plus free updates for life.",
   },
 ];
 
@@ -241,7 +241,7 @@ export default function Home() {
               <h2>The dashboard, live.</h2>
             </div>
             <p className="section__intro">
-              This isn&apos;t a screenshot. It&apos;s the actual template running on the demo
+              This isn&apos;t a screenshot — it&apos;s a live preview of the template on the demo
               household&apos;s year. Hit <strong>Show me the fixes</strong> and watch the savings
               rate move — that&apos;s the whole product in ten seconds.
             </p>
@@ -264,7 +264,7 @@ export default function Home() {
 
             <div className="shop">
               <article className="product product--flagship">
-                <div className="stamp stamp--amber stamp--corner">30-DAY<br/>GUARANTEE</div>
+                <div className="stamp stamp--amber stamp--corner">TRY FREE<br/>FIRST</div>
                 <p className="product__badge mono">FLAGSHIP · LAUNCHING WITH BUILD #1</p>
                 <h3>The AI Budget Dashboard</h3>
                 <p>
@@ -283,7 +283,7 @@ export default function Home() {
                   $19 · ONE-TIME · NO SUBSCRIPTION
                 </p>
                 <p className="product__guarantee mono">
-                  🧾 30-DAY RECEIPTS GUARANTEE — DOESN&apos;T WORK FOR YOU? FULL REFUND, NO INTERROGATION.
+                  🧾 NOT SURE? RUN THE FREE LITE VERSION FIRST — UPGRADE ONLY IF IT EARNS IT. LIFETIME UPDATES INCLUDED.
                 </p>
               </article>
               <article className="product">

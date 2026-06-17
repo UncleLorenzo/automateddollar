@@ -108,7 +108,7 @@ export function DemoDashboard() {
         </div>
       </div>
       <p className="dd__disclaimer mono">
-        DEMO HOUSEHOLD · REAL MATH · THIS IS THE ACTUAL TEMPLATE, RUNNING
+        DEMO HOUSEHOLD · REAL MATH · A LIVE PREVIEW OF THE TEMPLATE
       </p>
     </div>
   );
