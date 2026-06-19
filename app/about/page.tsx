@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "About — The Automated Dollar",
@@ -9,7 +11,9 @@ export const metadata: Metadata = {
 
 export default function About() {
   return (
-    <main className="page wrap">
+    <>
+      <SiteHeader />
+      <main className="page wrap">
       <p className="section__label">ABOUT</p>
       <h1>The receipts are the personality.</h1>
 
@@ -58,6 +62,8 @@ export default function About() {
       <p>
         <Link href="/">← Back to the homebase</Link>
       </p>
-    </main>
+      </main>
+      <SiteFooter />
+    </>
   );
 }

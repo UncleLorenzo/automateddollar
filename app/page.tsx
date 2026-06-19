@@ -1,5 +1,5 @@
-import Link from "next/link";
-import { Mark } from "@/components/Mark";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 import { LetterForm } from "@/components/LetterForm";
 import { FX } from "@/components/FX";
 import { DemoDashboard } from "@/components/DemoDashboard";
@@ -63,30 +63,7 @@ export default function Home() {
     <>
       <FX />
       <Ticker />
-      <header className="header">
-        <div className="wrap header__bar">
-          <a href="#" className="brand">
-            <Mark size={46} />
-            <span>
-              <span className="brand__name">The Automated Dollar</span>
-              <span className="brand__tag">RECEIPTS INCLUDED</span>
-            </span>
-          </a>
-          <nav className="nav">
-            <a href="#method">METHOD</a>
-            <a href="#demo">DEMO</a>
-            <a href="#templates">TEMPLATES</a>
-            <a href="#letter">THE LETTER</a>
-            <Link href="/about">ABOUT</Link>
-            <a
-              className="nav__cta"
-              href="https://www.youtube.com/@automateddollar?sub_confirmation=1"
-            >
-              WATCH THE BUILDS
-            </a>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         <section className="hero2">
@@ -108,6 +85,8 @@ export default function Home() {
                   <a
                     className="btn btn--primary"
                     href="https://www.youtube.com/@automateddollar?sub_confirmation=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
                   >
                     ▶ WATCH BUILD #1
                   </a>
@@ -330,7 +309,13 @@ export default function Home() {
             </div>
             <div className="socials">
               {SOCIALS.map((s) => (
-                <a key={s.name} className="social" href={s.url}>
+                <a
+                  key={s.name}
+                  className="social"
+                  href={s.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {s.name}
                   <span>{s.handle}</span>
                 </a>
@@ -347,23 +332,7 @@ export default function Home() {
         </div>
       </div>
 
-      <footer className="footer-block">
-        <div className="wrap footer">
-          <p>
-            © 2026 THE AUTOMATED DOLLAR · A YELLOWSTONE VENTURES LLC BRAND ·
-            EDUCATIONAL CONTENT ONLY — NOT FINANCIAL ADVICE. DEMO DATA IS ALWAYS
-            LABELED. WE SHOW OUR WORK; DO YOUR OWN.
-          </p>
-          <nav className="footer__links mono">
-            <Link href="/about">ABOUT</Link>
-            <Link href="/privacy">PRIVACY</Link>
-            <Link href="/terms">TERMS &amp; DISCLOSURES</Link>
-            <a href="mailto:rob@theautomateddollar.com">CONTACT</a>
-            <Link href="/links">/LINKS</Link>
-          </nav>
-          <p>BUILT WITH AI. SUPERVISED BY HUMANS. RECEIPTS ON REQUEST.</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </>
   );
 }

@@ -700,8 +700,14 @@ a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visibl
 .hero2__row .hero__actions { animation-delay: 0.45s; }
 
 @media (min-width: 1100px) {
-  .hero2__row .printer { margin-top: -120px; }
+  /* lift the receipt toward the hero, but not so far it buries the
+     last headline line ("YOUR MONEY.") — keep it clearing the type */
+  .hero2__row .printer { margin-top: -32px; }
 }
+
+/* safety net: headline always renders above the printing receipt,
+   so the punchline word can never be obscured at any viewport width */
+.hero2__title { position: relative; z-index: 2; }
 
 @media (max-width: 860px) {
   .hero2 { padding-block: 36px 56px; }
@@ -798,6 +804,7 @@ html.js [data-reveal].in {
   justify-self: center;
   width: min(340px, 100%);
   position: relative;
+  z-index: 1;
 }
 
 .printer__slot {
@@ -1444,4 +1451,204 @@ html.js [data-reveal].in {
   .product--flagship { padding-top: 56px; }
   .footer__links { gap: 14px; row-gap: 10px; }
   .page { padding: 48px 20px 72px; }
+}
+
+/* ============================================================
+   v6 — ELITE PASS
+   Jeweler-grade precision. The brand stays calm; the craft
+   gets louder. Appended last so these refinements win.
+   ============================================================ */
+
+:root {
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ink-soft: #2e3b35; /* primary secondary text — was #3c4a42 */
+  --ink-meta: #6f6a5e; /* small meta labels — was #8a857a (low contrast) */
+}
+
+/* 1 — financial numerals: every figure aligns like a printed ledger.
+   tabular = columns line up; slashed-zero = receipt/terminal voice. */
+.mono {
+  font-variant-numeric: tabular-nums slashed-zero;
+  font-feature-settings: "tnum" 1, "zero" 1;
+}
+
+/* 2 — display type rendered at its proper optical size + crisper edges */
+body { text-rendering: optimizeLegibility; }
+.hero2__title, .sechead h2, .section h2, .letter h2, .bigband__inner, .page h1 {
+  font-optical-sizing: auto;
+}
+
+/* 3 — typographic hygiene: no orphans, balanced headlines */
+p { text-wrap: pretty; }
+.hero2__title, .sechead h2, .section h2, .letter h2, .page h1 { text-wrap: balance; }
+
+/* 4 — printed-paper depth: warm light bloom over an opaque paper base
+   (explicit background-color so the body is never transparent) */
+body {
+  background-color: var(--paper);
+  background-image:
+    radial-gradient(120% 70% at 50% -8%, rgba(255, 253, 246, 0.85) 0%, rgba(246, 242, 231, 0) 55%),
+    radial-gradient(120% 90% at 50% 120%, rgba(225, 218, 199, 0.5) 0%, rgba(246, 242, 231, 0) 50%);
+  background-attachment: fixed;
+}
+
+/* 5 — frosted sticky header: premium, and kills the flat-paper seam on scroll */
+.header {
+  background: rgba(246, 242, 231, 0.82);
+  -webkit-backdrop-filter: saturate(1.1) blur(10px);
+  backdrop-filter: saturate(1.1) blur(10px);
+}
+
+/* 6 — cards rest ON the paper (hairline + faint soft shadow);
+   the hard-offset shadow stays as the hover signature (higher specificity) */
+.pillar, .product, .social, .dd, .faq details, .method {
+  box-shadow: 0 1px 2px rgba(16, 34, 28, 0.04), 0 6px 18px -12px rgba(16, 34, 28, 0.18);
+}
+
+/* 7 — one easing across the whole interaction layer */
+.btn, .social, .pillar, .nav a, .nav__cta, .dd__toggle,
+.faq summary, .links__item, .method__step, .header {
+  transition-timing-function: var(--ease);
+}
+
+/* 8 — secondary + meta text: tuned for contrast and consistency */
+.section__intro, .pillar p, .method__step p, .faq details p,
+.page p, .page li, .hero__sub { color: var(--ink-soft); }
+.receipt__txn, .dd__note, .dd__disclaimer, .links__foot, .links__sub { color: var(--ink-meta); }
+
+/* 9 — native controls wear the brand */
+input, textarea, button { accent-color: var(--green); }
+.letter__form input { caret-color: var(--green); }
+
+/* 10 — FAQ: underline that draws itself; smoother open/close */
+.faq summary {
+  background-image: linear-gradient(var(--green), var(--green));
+  background-size: 0% 1.5px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s var(--ease), color 0.15s var(--ease);
+}
+.faq summary:hover,
+.faq details[open] summary { background-size: 100% 1.5px; color: var(--green); }
+
+/* 11 — refined reveal: a touch slower, properly eased */
+html.js [data-reveal] { transition: opacity 0.8s var(--ease), transform 0.8s var(--ease); }
+
+/* 12 — thermal-paper edge shading on the receipt card */
+.receipt__body {
+  background-image: linear-gradient(
+    90deg, rgba(16, 34, 28, 0.05), transparent 7%, transparent 93%, rgba(16, 34, 28, 0.05)
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .faq summary { transition: none; }
+}
+
+/* ============================================================
+   v7 — SITE CHROME: real mobile navigation
+   Desktop nav unchanged; phones get a proper disclosure menu
+   instead of links vanishing entirely.
+   ============================================================ */
+
+.navtoggle { display: none; }
+.navmenu { display: none; }
+
+@media (max-width: 720px) {
+  .nav { display: none; }
+
+  .navtoggle {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 44px;
+    height: 38px;
+    padding: 0 10px;
+    background: none;
+    border: 1.5px solid var(--ink);
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .navtoggle span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--ink);
+    transition: transform 0.22s var(--ease), opacity 0.18s var(--ease);
+  }
+  .navtoggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .navtoggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .navtoggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .navmenu {
+    display: block;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s var(--ease);
+    background: rgba(246, 242, 231, 0.97);
+    -webkit-backdrop-filter: saturate(1.1) blur(10px);
+    backdrop-filter: saturate(1.1) blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+  .navmenu.is-open { max-height: 440px; }
+  .navmenu a {
+    display: block;
+    padding: 15px 24px;
+    color: var(--ink);
+    font-family: var(--mono);
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    border-top: 1px solid var(--rule);
+  }
+  .navmenu a:active { background: rgba(232, 161, 61, 0.1); }
+  .navmenu__cta {
+    margin: 12px 24px 18px;
+    text-align: center;
+    border-radius: 3px;
+    background: var(--green);
+    color: var(--paper) !important;
+    border-top: none !important;
+  }
+}
+
+/* ============================================================
+   v8 — ELITE MOBILE
+   Safe-area aware (notch / home-bar), edge-to-edge ink, and
+   fat-finger friendly. All env() values are 0 off notched
+   devices, so desktop is untouched.
+   ============================================================ */
+
+/* tasteful tap feedback instead of the default grey flash */
+* { -webkit-tap-highlight-color: rgba(30, 111, 80, 0.14); }
+
+/* edge-to-edge: the ink ticker + frosted header fill the notch;
+   content stays clear of the safe areas */
+.ticker { padding-top: calc(8px + env(safe-area-inset-top)); }
+.header { padding-top: env(safe-area-inset-top); }
+.wrap {
+  padding-left: calc(24px + env(safe-area-inset-left));
+  padding-right: calc(24px + env(safe-area-inset-right));
+}
+.footer-block { padding-bottom: calc(env(safe-area-inset-bottom)); }
+
+@media (max-width: 720px) {
+  .wrap {
+    padding-left: calc(20px + env(safe-area-inset-left));
+    padding-right: calc(20px + env(safe-area-inset-right));
+  }
+
+  /* hero receipt: shrink a touch so no line wraps on narrow screens */
+  .printer .receipt__body { padding: 22px 20px 16px; }
+  .printer .receipt__row { font-size: 12px; padding: 4px 0; }
+  .printer .receipt__head { font-size: 10px; letter-spacing: 2px; }
+  .printer .receipt__total { font-size: 15px; }
+  /* park the rubber stamp over the (decorative) barcode, never the text */
+  .printer .stamp--red { bottom: 46px; right: -6px; font-size: 10px; padding: 5px 8px; }
+
+  /* fat-finger safe footer links */
+  .footer__links a { padding: 6px 0; }
+
+  /* anchor offset = real mobile sticky-header height */
+  section[id], .letter[id] { scroll-margin-top: 84px; }
 }

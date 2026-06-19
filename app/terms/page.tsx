@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Terms & Disclosures — The Automated Dollar",
@@ -7,7 +9,9 @@ export const metadata: Metadata = {
 
 export default function Terms() {
   return (
-    <main className="page wrap">
+    <>
+      <SiteHeader />
+      <main className="page wrap">
       <p className="section__label">TERMS &amp; DISCLOSURES</p>
       <h1>The fine print, kept short.</h1>
       <p className="mono" style={{ fontSize: 13, color: "#5a5648" }}>
@@ -55,6 +59,8 @@ export default function Terms() {
       <p>
         <Link href="/">← Back to the homebase</Link>
       </p>
-    </main>
+      </main>
+      <SiteFooter />
+    </>
   );
 }

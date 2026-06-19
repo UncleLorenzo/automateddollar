@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Source_Serif_4, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
@@ -28,6 +28,12 @@ export const metadata: Metadata = {
     siteName: "The Automated Dollar",
     type: "website",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#10221C",
+  colorScheme: "light",
+  viewportFit: "cover",
 };
 
 export default function RootLayout({
