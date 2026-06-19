@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
   title: "Privacy Policy — The Automated Dollar",
@@ -7,7 +9,9 @@ export const metadata: Metadata = {
 
 export default function Privacy() {
   return (
-    <main className="page wrap">
+    <>
+      <SiteHeader />
+      <main className="page wrap">
       <p className="section__label">PRIVACY POLICY</p>
       <h1>Privacy, in plain English.</h1>
       <p className="mono" style={{ fontSize: 13, color: "#5a5648" }}>
@@ -50,6 +54,8 @@ export default function Privacy() {
       <p>
         <Link href="/">← Back to the homebase</Link>
       </p>
-    </main>
+      </main>
+      <SiteFooter />
+    </>
   );
 }
