@@ -1652,3 +1652,68 @@ html.js [data-reveal] { transition: opacity 0.8s var(--ease), transform 0.8s var
   /* anchor offset = real mobile sticky-header height */
   section[id], .letter[id] { scroll-margin-top: 84px; }
 }
+
+/* ============================================================
+   v9 — BOLD: ink header + full-bleed ink hero
+   The top of the site adopts the thumbnail/OG "pop" palette —
+   deep ink-green with paper type and amber accents — then
+   hands off to the warm editorial paper sections below.
+   ============================================================ */
+
+/* --- dark header (all pages, flows out of the ink ticker) --- */
+.header {
+  background: var(--ink);
+  border-bottom: 1px solid rgba(246, 242, 231, 0.12);
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+}
+.header.scrolled { box-shadow: 0 1px 0 rgba(47, 160, 117, 0.55); }
+.brand, .brand__name { color: var(--paper); }
+.brand__tag { color: var(--green-bright); }
+.nav a { color: var(--paper); }
+.nav a:hover { border-color: var(--amber); }
+.nav .nav__cta { background: var(--amber); color: var(--ink); }
+.nav .nav__cta:hover { background: var(--green-bright); color: var(--ink); }
+.navtoggle { border-color: rgba(246, 242, 231, 0.55); }
+.navtoggle span { background: var(--paper); }
+@media (max-width: 720px) {
+  .navmenu {
+    background: rgba(16, 34, 28, 0.97);
+    border-bottom-color: rgba(246, 242, 231, 0.14);
+  }
+  .navmenu a { color: var(--paper); border-top-color: rgba(246, 242, 231, 0.1); }
+  .navmenu a:active { background: rgba(232, 161, 61, 0.18); }
+  .navmenu__cta { background: var(--amber); color: var(--ink) !important; }
+}
+
+/* --- full-bleed ink hero --- */
+.hero2 {
+  background: var(--ink);
+  color: var(--paper);
+  position: relative;
+}
+.hero2::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(
+    to bottom, transparent 0 79px, rgba(246, 242, 231, 0.05) 79px 80px
+  );
+}
+.hero2 .wrap { position: relative; z-index: 1; }
+.hero2__title { color: var(--paper); }
+.hero2__title em { color: var(--green-bright); }
+.hero2__kicker { color: var(--green-bright); }
+.hero2 .hero__sub { color: #c8d2cc; }
+.hero2__dot { color: var(--amber); }
+
+/* CTAs tuned for the dark field */
+.hero2 .btn { border-color: var(--paper); color: var(--paper); }
+.hero2 .btn:hover { box-shadow: 3px 3px 0 var(--amber); }
+.hero2 .btn--primary { background: var(--amber); border-color: var(--amber); color: var(--ink); }
+.hero2 .btn--primary:hover { box-shadow: 3px 3px 0 var(--paper); }
+
+/* the printer slot needs to read against ink */
+.hero2 .printer__slot { background: #050d09; box-shadow: 0 3px 0 rgba(0, 0, 0, 0.4); }
+.hero2 .printer__slot::after { background: #34503f; }
